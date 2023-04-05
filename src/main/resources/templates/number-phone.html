@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Оператор</title>
+</head>
+<body>
+    <form method="GET" action="/operator/get-operator">
+        <label for="number">Введите номер телефона: </label>
+        <input type="text" id="number" name="numberPhone">
+        <br>
+        <input type="submit" value="Определить">
+    </form>
+
+    <span th:text="${operator}"></span>
+</body>
+</html>
