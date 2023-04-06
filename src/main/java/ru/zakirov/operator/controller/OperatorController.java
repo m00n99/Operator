@@ -22,9 +22,18 @@ public class OperatorController {
     @GetMapping()
     public String numberPhone(Model model){
         Object numberPhone = model.getAttribute("numberPhone");
-        if(numberPhone != null)
+
+        long before;
+
+        if(numberPhone != null) {
+
+            before = System.currentTimeMillis();
+
             model.addAttribute("operator",
-                operatorService.getOperator(Objects.requireNonNull(model.getAttribute("numberPhone")).toString()));
+                    operatorService.getOperator(Objects.requireNonNull(model.getAttribute("numberPhone")).toString()));
+
+            System.out.println("Time getOperator method: " + (System.currentTimeMillis() - before));
+        }
         return "number-phone";
     }
 
